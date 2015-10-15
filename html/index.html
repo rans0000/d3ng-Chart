@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>dChart Sample</title>
+        <style>*{margin: 0;padding: 0;}</style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div data-ng-controller="MainController as app">
+            <dchart-progressbar></dchart-progressbar>
+            </div>
+        </div>
+        <div class="scripts">
+            <!--load all libraries-->
+            <script src="js/libs/angular.min.js"></script>
+            <script src="js/libs/d3.min.js"></script>
+
+            <!--load all dependencies-->
+            <script src="js/dchart/common/dchart.js"></script>
+            <script src="js/dchart/common/dchart-d3-module.js"></script>
+
+            <!--load app-->
+            <script src="js/app.js"></script>
+        </div>
+    </body>
+</html>

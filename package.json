@@ -1,0 +1,15 @@
+{
+    "name": "test_prj",
+    "version": "1.0.0",
+    "description": "testing",
+    "main": "index.html",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "ranjith",
+    "license": "ISC",
+    "devDependencies": {
+        "grunt": "^0.4.5",
+        "grunt-express": "^1.4.1"
+    }
+}
