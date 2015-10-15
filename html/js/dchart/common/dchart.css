@@ -1,0 +1,11 @@
+/*---------------------------------*/
+/*progressbar*/
+.dchart-progressbar{height: 5px;background: #eee;}
+.dchart-progressbar .dchart-progressbar-meter{float: left;height: 5px;}
+.dchart-progressbar.theme-red .dchart-progressbar-meter{background: red;}
+.dchart-progressbar.theme-green .dchart-progressbar-meter{background: green;}
+.dchart-progressbar.theme-blue .dchart-progressbar-meter{background: blue;}
+.dchart-progressbar.theme-default .dchart-progressbar-meter{background: #666;}
+
+/*---------------------------------*/
+.dchart-progressbar:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}
