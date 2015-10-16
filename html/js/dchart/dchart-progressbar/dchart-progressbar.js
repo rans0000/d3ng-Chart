@@ -15,16 +15,16 @@
             replace: true,
             scope: {
                 'value': '=dchartValue',
-                'themes': '@dchartTheme'
+                'theme': '@dchartTheme'
             },
             templateUrl: 'js/dchart/dchart-progressbar/dchart-progressbar-template.html',
-            controller: function($scope){
+            link: function(scope, element, attrs){
                 
-                switch($scope.themes){
-                    case 'red': $scope.themeClass = 'theme-red';break;
-                    case 'green': $scope.themeClass = 'theme-green';break;
-                    case 'blue': $scope.themeClass = 'theme-blue';break;
-                    default: $scope.themeClass = 'theme-default';break;
+                switch(scope.theme){
+                    case 'red': scope.themeClass = 'theme-red';break;
+                    case 'green': scope.themeClass = 'theme-green';break;
+                    case 'blue': scope.themeClass = 'theme-blue';break;
+                    default: scope.themeClass = 'theme-default';break;
                 }
             }
         };

@@ -8,4 +8,22 @@
 .dchart-progressbar.theme-default .dchart-progressbar-meter{background: #666;}
 
 /*---------------------------------*/
-.dchart-progressbar:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}
+/*progressbar widget*/
+.dchart-progressbar-widget{clear: both;}
+.dchart-progressbar-widget-title{float: left;clear: both;}
+.dchart-progressbar-widget-box{clear: both;}
+.dchart-progressbar-meter-wrapper{margin-right: 50px;padding-top: 5px;}
+.dchart-progressbar-widget-value{float: right;}
+
+.dchart-progressbar-widget.hasIcon{}
+.dchart-progressbar-widget.hasIcon .dchart-progressbar-icon-wrapper{float: left;}
+.dchart-progressbar-widget.hasIcon .dchart-progressbar-widget-block-wrapper{margin-left: 50px;}
+.dchart-progressbar-widget-block-wrapper > .inner{float: left;width: 100%;}
+.dchart-progressbar-icon-wrapper .icon{width: 20px;height: 20px;display: block;float: left;background: #000;margin: 10px 0 0 10px;}
+
+.dchart-progressbar-widget.type2 .dchart-progressbar-meter-wrapper{margin-right: 0;}
+/*---------------------------------*/
+
+
+/*---------------------------------*/
+.dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}
