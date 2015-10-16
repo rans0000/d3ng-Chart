@@ -3,17 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title>dChart Sample</title>
-        <style>
-            *{margin: 0;padding: 0;}
-            body{font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;color: #666;font-size: 14px;}
-        </style>
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="js/dchart/common/dchart.css">
     </head>
     <body>
         <div class="wrapper">
             <div data-ng-controller="MainController as app">
+               <form class="form_generic">
+                   <label><input type="text" ng-model="app.percentValue">: Percentage value</label>
+               </form>
+                
                 <dchart-progressbar-widget
-                                           data-dchart-value="60.747448488"
+                                           data-dchart-value="{{app.percentValue}}"
                                            data-dchart-theme="red"
                                            data-dchart-title="Training 2"
                                            data-dchart-type="typse1"

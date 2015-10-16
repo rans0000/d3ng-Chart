@@ -5,6 +5,6 @@
     function MainController(){
         var viewModel = this;
         
-        viewModel.name = 'MainController';
+        viewModel.percentValue = 200;
     }
 }());

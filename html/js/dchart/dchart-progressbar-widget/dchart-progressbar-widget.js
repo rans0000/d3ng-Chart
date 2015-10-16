@@ -23,7 +23,7 @@
                 restrict: 'E',
                 replace: true,
                 scope: {
-                    'value': '=dchartValue',
+                    'value': '@dchartValue',
                     'theme': '@dchartTheme',
                     'title': '@dchartTitle',
                     'iconClass': '@dchartIconclass',
@@ -31,22 +31,31 @@
                 },
                 templateUrl: 'js/dchart/dchart-progressbar-widget/dchart-progressbar-widget-template.html',
                 link: function(scope, element, attr){
-                    
-                    if(!scope.value){
-                        scope.value = 0;
-                    }
-                    
+
+                    scope.$watch('value', sanitizeValue);
+
                     switch(scope.theme){
                         case 'red': scope.themeClass = 'theme-red';break;
                         case 'green': scope.themeClass = 'theme-green';break;
                         case 'blue': scope.themeClass = 'theme-blue';break;
                         default: scope.themeClass = 'theme-default';break;
                     }
-                    
+
                     switch(scope.widgetType){
                         case 'type2': break;
                         case 'type1': break;
                         default: scope.widgetType = 'type1'; break;
+                    }
+
+                    function sanitizeValue(oldValue, newValue){
+                        if(!scope.value){
+                            scope.value = 0;
+                        }
+                        else{
+                            if(parseFloat(scope.value) > 100){
+                                scope.value = 100;
+                            }
+                        }
                     }
                 }
             };
