@@ -1,7 +1,7 @@
 /*---------------------------------*/
 /*progressbar*/
 .dchart-progressbar{height: 5px;background: #eee;}
-.dchart-progressbar .dchart-progressbar-meter{float: left;height: 5px;}
+.dchart-progressbar .dchart-progressbar-meter{float: left;height: 5px;-webkit-transition: .3s;transition: .3s;}
 .dchart-progressbar.theme-red .dchart-progressbar-meter{background: red;}
 .dchart-progressbar.theme-green .dchart-progressbar-meter{background: green;}
 .dchart-progressbar.theme-blue .dchart-progressbar-meter{background: blue;}
@@ -23,7 +23,11 @@
 
 .dchart-progressbar-widget.type2 .dchart-progressbar-meter-wrapper{margin-right: 0;}
 /*---------------------------------*/
-
+.dchart-radialguage-bgarc{fill: #ddd;}
+.dchart-radialguage{display: table;position: relative;}
+.dchart-radialguage-theme-default .dchart-radialguage-bgarc{fill: #ddd;}
+.dchart-radialguage-theme-default .dchart-radialguage-valarc{fill: #666;shape-rendering: geometricPrecision;}
+.dchart-radialguage-label{position: absolute;width: 100%;text-align: center;top: 50%;margin-top: -8px;}
 
 /*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}

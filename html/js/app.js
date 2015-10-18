@@ -5,6 +5,6 @@
     function MainController(){
         var viewModel = this;
         
-        viewModel.percentValue = 200;
+        viewModel.percentValue = 60;
     }
 }());
