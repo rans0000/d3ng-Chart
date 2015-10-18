@@ -1,10 +1,23 @@
 (function () {
     angular.module('myApp', ['dchart'])
-        .controller('MainController', MainController);
+        .controller('MainController', ['$scope', MainController]);
 
-    function MainController(){
-        var viewModel = this;
+    function MainController($scope){
+        var vm = this;
         
-        viewModel.percentValue = 60;
+        vm.actualValue = 80;
+        vm.totalValue = 100;
+        vm.percentValue = calcPercentage();
+        
+        $scope.$watch('app.actualValue', function(){
+            calcPercentage();
+        });
+        $scope.$watch('app.totalValue', function(){
+            calcPercentage();
+        });
+        
+        function calcPercentage(){
+            vm.percentValue = vm.actualValue / vm.totalValue * 100;
+        }
     }
 }());
