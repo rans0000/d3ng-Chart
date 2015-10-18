@@ -1,4 +1,4 @@
-/*
+﻿/*
 @desc: Radialguage component that shows percentage value
 @usage:
 <dchart-radialguage
@@ -25,7 +25,12 @@
                 restrict: 'E',
                 replace: true,
                 scope: {
-                    value: '@dchartValue'
+                    value: '@dchartValue',
+                    size: '@dchartSize',
+                    themeClass: '@dchartTheme',
+                    outerRadius: '@dchartRadiusOuter',
+                    innerRadius: '@dchartRadiusInner',
+                    animSpeed: '@dchartAnimspeed'
                 },
                 templateUrl: 'js/dchart/dchart-radialguage/dchart-radialguage-template.html',
                 compile: radialguageCompile
@@ -88,31 +93,42 @@
 
     function radialguageCompile(element, attrs, transclude){
 
-        var settings = {};
 
         //sanitizing attributes
+        /*var settings = {};
         settings.width = parseInt(attrs.dchartSize) || 100;
         settings.height = settings.width;
         settings.themeClass = attrs.dchartTheme || 'dchart-radialguage-theme-default';
         settings.outerRadius = attrs.dchartRadiusOuter || settings.width;
         settings.innerRadius = attrs.dchartRadiusInner || (settings.width - 10);
-        settings.animSpeed = attrs.animspeed || 300;
+        settings.animSpeed = attrs.animspeed || 300;*/
 
         //creating the element
         var svg = d3.select(element[0]).select('.dchart-radialguage-svg');
 
         //link function
         return function(scope, element, attrs){
-
-            //sanitizing value
-            scope.value = dchartUtils.sanitize0to100(scope.value);
-            drawRadialguage(svg, settings, scope.value)
-
-            scope.$watch('value', function(newValue, oldValue){
-                scope.value = dchartUtils.sanitize0to100(scope.value)
-                drawRadialguage(svg, settings, scope.value)
-            });
-
+            radialguageLink(svg, scope, element, attrs);
         };
+    }
+
+    function radialguageLink(svg, scope, element, attrs){
+        //sanitizing attributes
+        var settings = {};
+        settings.width = parseInt(scope.size) || 100;
+        settings.height = settings.width;
+        settings.themeClass = scope.theme || 'dchart-radialguage-theme-default';
+        settings.outerRadius = scope.outerRadius || settings.width;
+        settings.innerRadius = scope.innerRadius || (settings.width - 10);
+        settings.animSpeed = scope.animSpeed || 300;
+
+        //sanitizing value
+        scope.value = dchartUtils.sanitize0to100(scope.value);
+        drawRadialguage(svg, settings, scope.value)
+
+        scope.$watch('value', function(newValue, oldValue){
+            scope.value = dchartUtils.sanitize0to100(scope.value)
+            drawRadialguage(svg, settings, scope.value)
+        });
     }
 }());
