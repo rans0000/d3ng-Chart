@@ -1,6 +1,13 @@
 <div class="dchart-donutchart">
-    <div class="dchart-donutchart-chart-wrapper"></div>
-    <div class="dchart-donutchart-info-wrapper">
-        <span>{{total}}</span><br>Responses
+    <div class="dchart-donutchart-wrapper">
+        <div class="dchart-donutchart-chart-wrapper">
+            <svg></svg>
+        </div>
+        <div class="dchart-donutchart-info-wrapper" ng-style="{'width': styleProperties.size, 'height': styleProperties.size, 'margin-top': styleProperties.margin, 'margin-left': styleProperties.margin}">
+            <div class="donutchart-info-text">
+                <b>{{total}}</b><br>
+                Responses
+            </div>
+        </div>
     </div>
 </div>
