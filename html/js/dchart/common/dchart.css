@@ -39,4 +39,11 @@
 .dchart-angularguage-theme-default .dchart-angularguage-bgarc{fill: #ddd;}
 
 /*---------------------------------*/
+.dchart-angularguage-widget.type1 .dchart-angularguage svg{display: table;margin: auto;}
+.dchart-angularguage-widget.type1 .dchart-angularguage-widget-info{text-align: center;}
+
+.dchart-angularguage-widget.type2 .dchart-angularguage-widget-graph-wrapper{float: left;}
+.dchart-angularguage-widget.type2 .dchart-angularguage-widget-info{overflow: hidden;}
+
+/*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}

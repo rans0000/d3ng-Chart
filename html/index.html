@@ -35,12 +35,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <dchart-angularguage
-                                             data-dchart-value="{{app.percentValue}}"
-                                             data-dchart-size="100"
-                                             data-dchart-theme="dchart-angularguage-theme-default"
-                                             data-dchart-animspeed="1000">
-                        </dchart-angularguage>
+                        <dchart-angularguage-widget
+                                                    data-dchart-value="{{app.actualValue}}"
+                                                    data-dchart-title="Overall Delight"
+                                                    data-dchart-size="100"
+                                                    data-dchart-type="type1"
+                                                    data-dchart-theme="dchart-angularguage-theme-default"
+                                                    data-dchart-animspeed="300">
+                        </dchart-angularguage-widget>
                     </div>
                     <div class="col-md-6"></div>
                 </div>
@@ -60,6 +62,7 @@
             <script src="js/dchart/dchart-radialguage/dchart-radialguage.js"></script>
             <script src="js/dchart/dchart-radialguage-widget/dchart-radialguage-widget.js"></script>
             <script src="js/dchart/dchart-angularguage/dchart-angularguage.js"></script>
+            <script src="js/dchart/dchart-angularguage-widget/dchart-angularguage-widget.js"></script>
 
             <!--load app-->
             <script src="js/app.js"></script>
