@@ -25,16 +25,23 @@
                     </div>
                     <div class="col-md-6">
                         <dchart-radialguage-widget
-                                            data-dchart-value="{{app.actualValue}}"
-                                            data-dchart-total="{{app.totalValue}}"
-                                            data-dchart-title="Training2"
-                                            data-dchart-size="90"
-                                            data-dchart-theme="reclass">
+                                                   data-dchart-value="{{app.actualValue}}"
+                                                   data-dchart-total="{{app.totalValue}}"
+                                                   data-dchart-title="Training2"
+                                                   data-dchart-size="90"
+                                                   data-dchart-theme="reclass">
                         </dchart-radialguage-widget>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6"></div>
+                    <div class="col-md-6">
+                        <dchart-angularguage
+                                             data-dchart-value="{{app.percentValue}}"
+                                             data-dchart-size="100"
+                                             data-dchart-theme="dchart-angularguage-theme-default"
+                                             data-dchart-animspeed="1000">
+                        </dchart-angularguage>
+                    </div>
                     <div class="col-md-6"></div>
                 </div>
             </div>
@@ -52,6 +59,7 @@
             <script src="js/dchart/dchart-progressbar-widget/dchart-progressbar-widget.js"></script>
             <script src="js/dchart/dchart-radialguage/dchart-radialguage.js"></script>
             <script src="js/dchart/dchart-radialguage-widget/dchart-radialguage-widget.js"></script>
+            <script src="js/dchart/dchart-angularguage/dchart-angularguage.js"></script>
 
             <!--load app-->
             <script src="js/app.js"></script>

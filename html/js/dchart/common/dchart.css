@@ -24,14 +24,18 @@
 .dchart-progressbar-widget.type2 .dchart-progressbar-meter-wrapper{margin-right: 0;}
 
 /*---------------------------------*/
-.dchart-radialguage-bgarc{fill: #ddd;}
 .dchart-radialguage{display: table;position: relative;}
+.dchart-radialguage-label{position: absolute;width: 100%;text-align: center;top: 50%;margin-top: -8px;}
+
 .dchart-radialguage-theme-default .dchart-radialguage-bgarc{fill: #ddd;}
 .dchart-radialguage-theme-default .dchart-radialguage-valarc{fill: #666;shape-rendering: geometricPrecision;}
-.dchart-radialguage-label{position: absolute;width: 100%;text-align: center;top: 50%;margin-top: -8px;}
 
 /*---------------------------------*/
 .dchart-radialguage-widget{text-align: center;}
 .dchart-radialguage-widget .dchart-radialguage{margin: auto;}
+/*---------------------------------*/
+.dchart-angularguage-theme-default{}
+.dchart-angularguage-theme-default .dchart-angularguage-bgarc{fill: #ddd;}
+
 /*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}
