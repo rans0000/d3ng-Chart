@@ -14,7 +14,7 @@
                     <label><input type="text" ng-model="app.totalValue">: Total value</label>
                 </form>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <dchart-progressbar-widget
                                                    data-dchart-value="{{app.percentValue}}"
                                                    data-dchart-theme="red"
@@ -23,7 +23,7 @@
                                                    data-dchart-iconclass="my-icon-class">
                         </dchart-progressbar-widget>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <dchart-radialguage-widget
                                                    data-dchart-value="{{app.actualValue}}"
                                                    data-dchart-total="{{app.totalValue}}"
@@ -32,9 +32,7 @@
                                                    data-dchart-theme="reclass">
                         </dchart-radialguage-widget>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-4">
                         <dchart-angularguage-widget
                                                     data-dchart-value="{{app.actualValue}}"
                                                     data-dchart-title="Overall Delight"
@@ -44,7 +42,17 @@
                                                     data-dchart-animspeed="300">
                         </dchart-angularguage-widget>
                     </div>
-                    <div class="col-md-6"></div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <dchart-donutchart
+                                           data-dchart-data="app.data"
+                                           data-dchart-radius-outer="70"
+                                           data-dchart-radius-inner="45"
+                                           data-dchart-animspeed="300">
+                        </dchart-donutchart>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,6 +71,7 @@
             <script src="js/dchart/dchart-radialguage-widget/dchart-radialguage-widget.js"></script>
             <script src="js/dchart/dchart-angularguage/dchart-angularguage.js"></script>
             <script src="js/dchart/dchart-angularguage-widget/dchart-angularguage-widget.js"></script>
+            <script src="js/dchart/dchart-donutchart/dchart-donutchart.js"></script>
 
             <!--load app-->
             <script src="js/app.js"></script>

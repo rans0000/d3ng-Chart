@@ -49,4 +49,20 @@
 .dchart-angularguage-widget.type2 .dchart-angularguage-widget-info{overflow: hidden;}
 
 /*---------------------------------*/
+.dchart-donutchart-wrapper{position: relative;}
+.dchart-donutchart-info-wrapper{position: absolute;left: 0;top: 0;border-radius: 50%;overflow: hidden;text-align: center;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.donutchart-info-text{width: 100%;}
+/*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}

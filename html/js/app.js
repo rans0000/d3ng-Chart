@@ -8,6 +8,12 @@
         vm.actualValue = 80;
         vm.totalValue = 100;
         vm.percentValue = calcPercentage();
+        vm.data = [
+            {color: '#5cb4eb', value: 69, name: 'Average'},
+            {color: '#f09c29', value: 12, name: 'Below Average'},
+            {color: '#f4f441', value: 45, name: 'Above Average'},
+            {color: '#08a80f', value: 182, name: 'Excellent'}
+        ];
         
         $scope.$watch('app.actualValue', function(){
             calcPercentage();
