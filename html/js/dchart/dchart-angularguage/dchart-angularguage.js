@@ -1,3 +1,18 @@
+﻿/*
+@desc: Angularguage component for showing percentage value
+@usage:
+<!--<dchart-angularguage
+                     data-dchart-value="{{app.percentValue}}"
+                     data-dchart-size="100"
+                     data-dchart-theme="dchart-angularguage-theme-default"
+                     data-dchart-animspeed="1000">
+</dchart-angularguage>-->
+
+@ data-dchart-value : Value for the guage (shown as a percentage value)
+@ data-dchart-size : (optional; default: 100). if size = 50, then width = 100 and height = 60
+@ data-dchart-theme : (optional) - any css class name to be added to the component
+@ data-dchart-animspeed : (optional; default: 300) Animation speed in milliseconds
+*/
 (function () {
     angular.module('dchart')
         .directive('dchartAngularguage', ['d3', function(d3){
@@ -107,6 +122,7 @@
         drawAngularguage(svg, settings, scope.value)
         
         scope.$watch('value', function(newValue, oldValue){
+            scope.value = parseFloat(scope.value) || 0;
             drawAngularguage(svg, settings, scope.value)
         });
     }
