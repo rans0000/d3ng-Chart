@@ -1,3 +1,18 @@
+/*
+@desc: DonutChart widget for housing DonutChart component and table
+@usage:
+<dchart-donutchart-widget
+                   data-dchart-data="data"
+                   data-dchart-radius-outer="70"
+                   data-dchart-radius-inner="45"
+                   data-dchart-animspeed="300">
+</dchart-donutchart-widget>
+
+@ data-dchart-data : Array of objects with format:- {name: 'name', value: 20, color: '#8899cc'}
+@ data-dchart-animspeed : (optional; default: 300) Animation speed in milliseconds
+@ data-dchart-radius-outer : (optional; default: 75)
+@ data-dchart-radius-inner : (optional; default: 25px less than outer-radius if not specified)
+*/
 (function () {
     angular.module('dchart')
         .directive('dchartDonutchartWidget', ['d3', function(d3){

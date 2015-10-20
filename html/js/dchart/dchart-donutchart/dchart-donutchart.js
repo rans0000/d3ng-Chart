@@ -2,7 +2,7 @@
 @desc: DonutChart component
 @usage:
 <dchart-donutchart
-                   data-dchart-data="app.data"
+                   data-dchart-data="data"
                    data-dchart-radius-outer="70"
                    data-dchart-radius-inner="45"
                    data-dchart-animspeed="300">
