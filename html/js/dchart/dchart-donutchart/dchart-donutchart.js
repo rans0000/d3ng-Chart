@@ -28,6 +28,8 @@
         }]);
 
     function donutchartCompile(element, attrs, transclude){
+
+        //settings
         var settings = {};
         settings.outerRadius = parseInt(attrs.dchartRadiusOuter) || 75;
         settings.innerRadius = parseInt(attrs.dchartRadiusInner) || (settings.outerRadius - 25);
@@ -39,10 +41,6 @@
         .attr('class', 'dchart-donutchart-svg')
         .attr('width', settings.size)
         .attr('height', settings.size);
-
-        svg.append('g')
-            .attr('class', 'dchart-donutchart-group')
-            .attr('transform', 'translate(' + settings.outerRadius + ', ' + settings.outerRadius + ')');
 
         //link function
         return function(scope, element, attrs){
@@ -60,16 +58,26 @@
         scope.styleProperties.size = (settings.size - ( 2 * scope.styleProperties.margin)) + 'px';
         scope.styleProperties.margin += 'px';
 
-        scope.total = d3.sum(data, function(d){return d.value;})
+        //initial setup
+
+
+        //drawing the chart
+        scope.total = d3.sum(data, function(d){return d.value;});
         drawDonutchart(svg, settings, data);
 
         scope.$watch('data', function(newValue, oldValue){
             data = mapToNativeObject(scope.data);
+            scope.total = d3.sum(data, function(d){return d.value;});
+            drawDonutchart(svg, settings, data);
         }, true);
     }
 
     function drawDonutchart(svg, settings, data){
-        var donutchartGroup = svg.select('.dchart-donutchart-group');
+        svg.select('g').remove();
+
+        var donutchartGroup = svg.append('g')
+        .attr('class', 'dchart-donutchart-group')
+        .attr('transform', 'translate(' + settings.outerRadius + ', ' + settings.outerRadius + ')');
 
         var arc = d3.svg.arc()
         .innerRadius(settings.innerRadius)
@@ -79,14 +87,14 @@
         .padAngle(.02)
         .value(function(d){return d.value;});
 
-        var pieArcs = donutchartGroup.selectAll('path')
-        .data(pie(data));
-        pieArcs.enter()
+        var pieArcs = donutchartGroup.selectAll('path');
+        pieArcs.data(pie(data))
+            .enter()
             .append('path')
             .style('fill', function(d){return d.data.color;})
             .attr('d', arc)
             .on('click', function(){ console.log(d3.select(this).data()[0].value); })
-        pieArcs.exit()
+        pieArcs.data(pie(data)).exit()
             .remove();
 
     }
