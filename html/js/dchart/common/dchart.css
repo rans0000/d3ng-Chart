@@ -61,5 +61,14 @@
     align-items: center;
 }
 .donutchart-info-text{width: 100%;}
+
+/*---------------------------------*/
+.color_block{display: block;width: 10px;height: 10px;}
+.dchart-donutchart-widget-graph-wrapper{float: left;margin-right: 20px;}
+.dchart-donutchart-widget-info{overflow: hidden;}
+.dchart-donutchart-widget-table{width: 100%;}
+.dchart-donutchart-widget-table td{border-bottom: 1px solid  #eee;padding: 5px 0;}
+.dchart-donutchart-widget-table td:last-child{text-align: right;}
+
 /*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}
