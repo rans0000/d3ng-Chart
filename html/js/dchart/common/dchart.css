@@ -71,4 +71,10 @@
 .dchart-donutchart-widget-table td:last-child{text-align: right;}
 
 /*---------------------------------*/
+.dchart-star-rating-star{display: inline-block;width: 15px;height: 15px;margin-right: 5px;}
+.dchart-star-rating-star.full{background: yellow;}
+.dchart-star-rating-star.half{background: #c6c6c6;}
+.dchart-star-rating-star.empty{background: #eee;}
+
+/*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}

@@ -1,3 +1,10 @@
+/*
+@desc: Component for showing a 1-5 scale star rating meter.
+@usage:
+<dchart-star-rating data-dchart-value="value"></dchart-star-rating>
+
+@ data-dchart-value : Value for the guage (value between 0 - 5. Floting point values are accepted)
+*/
 (function () {
     angular.module('dchart')
         .directive('dchartStarRating', ['d3', function(d3){
@@ -15,9 +22,7 @@
     function starRatingLink(scope, element, attrs){
 
         var starArray = [];
-
-        //preparing svg element
-        var svg = d3.select(element[0]).select('svg');
+        var rootElement = d3.select(element[0]);
 
         scope.$watch('value', function(newValue, oldValue){
             //sanitizing values
@@ -26,25 +31,17 @@
             //map value to array
             starArray = getStarArray(scope.value);
 
-            drawStars(svg, starArray);
+            drawStars(rootElement, starArray);
         });
     }
 
     function drawStars(svg, data){
 
-        svg.select('g').remove();
-
-        var starRatingGroup = svg.append('g')
-        .attr('class', 'dchart-star-rating-group')
-        .attr('transform', 'translate(0, 0)');
-
-        var star = starRatingGroup.selectAll('.star').data(data);
+        var star = svg.selectAll('.dchart-star-rating-star').data(data);
 
         star.enter()
-            .append('circle')
-            .attr('class', 'dchart-star-rating-star')
-            .attr('cx', function(d, i){return (i*20)+10;})
-            .attr({cy: 20, r: 10});
+            .append('span')
+            .attr('class', 'dchart-star-rating-star');
 
         star.exit().remove();
 
@@ -52,15 +49,6 @@
             .classed('full', function(d){return d === 1;})
             .classed('half', function(d){return d === 'x';})
             .classed('empty', function(d){return d === 0;})
-            .attr('fill', function(d){
-            var color = '';
-            switch(d){
-                case 1: color = 'yellow';break;
-                case 0: color = '#eee';break;
-                case 'x': color = '#aaa';break;
-            }
-            return color;
-        });
     }
 
     function getStarArray(value){
