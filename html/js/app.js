@@ -16,6 +16,7 @@
         ];
         vm.dataString = JSON.stringify(vm.dataString);
         vm.data = JSON.parse(vm.dataString);
+        vm.ratingValue = 3;
         
         vm.formDataSubmit = function(){
             console.log(vm.dataString);
