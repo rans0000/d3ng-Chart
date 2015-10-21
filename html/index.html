@@ -9,10 +9,6 @@
     <body>
         <div class="wrapper">
             <div data-ng-controller="MainController as app">
-                <form class="form_generic">
-                    <label><input type="text" ng-model="app.actualValue">: Actual value</label>
-                    <label><input type="text" ng-model="app.totalValue">: Total value</label>
-                </form>
                 <div class="row">
                     <div class="col-md-4">
                         <dchart-progressbar-widget
@@ -45,24 +41,42 @@
                 </div>
                 <hr>
                 <div class="row">
-                   <div class="col-md-4">
-                       <form name="formData" ng-submit="app.formDataSubmit()">
-                          <label>Data Object:<br><textarea ng-model="app.dataString" cols="30" rows="10"></textarea></label>
-                          <label><input type="text" ng-model="app.ratingValue">: Star Rating</label>
-                       </form>
-                   </div>
                     <div class="col-md-4">
                         <dchart-donutchart-widget
-                                           data-dchart-data="app.data"
-                                           data-dchart-radius-outer="70"
-                                           data-dchart-radius-inner="45"
-                                           data-dchart-animspeed="300">
+                                                  data-dchart-data="app.data"
+                                                  data-dchart-radius-outer="70"
+                                                  data-dchart-radius-inner="45"
+                                                  data-dchart-animspeed="300">
                         </dchart-donutchart-widget>
                     </div>
                     <div class="col-md-4">
-                        <dchart-star-rating data-dchart-value="{{app.ratingValue}}"></dchart-star-rating>
+                        <dchart-linechart></dchart-linechart>
+                    </div>
+                    <div class="col-md-4">
+                        <dchart-star-rating-widget
+                                                   data-dchart-value="{{app.ratingValue}}"
+                                                   data-dchart-title="Viewers"
+                                                   data-dchart-count="1000"
+                                                   data-dchart-type="type1">
+                        </dchart-star-rating-widget>
                     </div>
                 </div>
+                <hr>
+                <form class="form_generic" name="formData" ng-submit="app.formDataSubmit()">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label><input type="text" ng-model="app.actualValue">: Actual value</label>
+                            <label><input type="text" ng-model="app.totalValue">: Total value</label>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Data Object:<br><textarea ng-model="app.dataString" cols="30" rows="10"></textarea></label>
+                        </div>
+                        <div class="col-md-4">
+                            <label><input type="text" ng-model="app.ratingValue">: Star Rating</label>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
         <div class="scripts">
@@ -83,6 +97,7 @@
             <script src="js/dchart/dchart-donutchart/dchart-donutchart.js"></script>
             <script src="js/dchart/dchart-donutchart-widget/dchart-donutchart-widget.js"></script>
             <script src="js/dchart/dchart-star-rating/dchart-star-rating.js"></script>
+            <script src="js/dchart/dchart-star-rating-widget/dchart-star-rating-widget.js"></script>
 
             <!--load app-->
             <script src="js/app.js"></script>
