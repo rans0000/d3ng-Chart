@@ -1,0 +1,14 @@
+<div class="dchart-donutchart-widget">
+    <div class="dchart-donutchart-widget-graph-wrapper">
+        <dchart-donutchart data-dchart-data="widgetData" data-dchart-radius-outer="{{radiusOuter}}" data-dchart-radius-inner="{{radiusInner}}" data-dchart-animspeed="{{animSpeed}}"></dchart-donutchart>
+    </div>
+    <div class="dchart-donutchart-widget-info">
+        <table class="dchart-donutchart-widget-table" ng-if="widgetData.length">
+            <tr ng-repeat="item in widgetData">
+                <td><span class="color_block" style="background: {{item.color}}"></span></td>
+                <td>{{item.key}}</td>
+                <td>{{item.value}} ({{item.value/total*100 | number:0}}%)</td>
+            </tr>
+        </table>
+    </div>
+</div>

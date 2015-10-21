@@ -1,0 +1,8 @@
+<article class="dchart-star-rating-widget {{themeClass}}">
+    <div class="dchart-star-rating-widget-value">{{value}}</div>
+    <div class="dchart-star-rating-widget-main">
+        <span ng-if="themeClass == 'type1'">{{title}} <b>({{count}})</b></span>
+        <dchart-star-rating data-dchart-value="value"></dchart-star-rating>
+        <span ng-if="themeClass == 'type2'">{{title}} <b>{{count}}</b></span>
+    </div>
+</article>

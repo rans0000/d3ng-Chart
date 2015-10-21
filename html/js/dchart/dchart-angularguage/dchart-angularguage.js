@@ -32,7 +32,7 @@
 
     function drawAngularguage(svg, settings, data){
         var startAngle = -90 * Math.PI / 180,
-            degValue = (data / 100 * 180) - 90;
+            degValue = (data / 100 * 180) - 90,
             PiValue = (data * Math.PI / 100) + startAngle,
             posX = (settings.size),
             posY = settings.height;
