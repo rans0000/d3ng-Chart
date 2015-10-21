@@ -1,4 +1,4 @@
-/*
+﻿/*
 @desc: Widget for showing 'Star rating Chart'.
 @usage:
 <dchart-star-rating-widget
@@ -32,6 +32,10 @@
     
     function starRatingWidgetLink(scope, element, attrs){
         scope.themeClass = (scope.widgetType === 'type2')? 'type2' : 'type1';
+        
+        scope.$watch('value', function(newValue, oldValue){
+            scope.value = parseFloat(scope.value) || 0;
+        });
     }
     
 }());
