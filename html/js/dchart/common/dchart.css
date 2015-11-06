@@ -82,5 +82,20 @@
 /*---------------------------------*/
 .dchart-star-rating-widget-value{float: left;margin-right: 10px;width: 60px;font-size: 30px;}
 .dchart-star-rating-widget-main{margin-left: 70px;}
+
+/*---------------------------------*/
+.dchart-linechart-linegroup path{fill: none;stroke: #65b3f7;}
+.dchart-linechart-dotgroup circle{fill: #65b3f7;stroke: none;cursor: pointer;}
+.dchart-linechart-dotgroup circle:hover{fill: #fff;stroke: #65b3f7;stroke-width:2;}
+.dchart-linechart-gridgroup line{stroke-width:1;opacity: .1;shape-rendering:crispEdges;stroke-dasharray: 5, 3;}
+.dchart-linechart-gridgroup line:first-child{stroke-dasharray: 0;opacity: .15;}
+.dchart-linechart-xaxisgroup path{stroke-width:1;fill:none;}
+.dchart-linechart-xaxisgroup text{font-family: Verdana, Geneva, sans-serif;}
+.dchart-linechart-cursor-x{shape-rendering: crispEdges;fill:none;stroke-width:1;stroke: #ddd;}
+.dchart-linechart-triangle{fill: #f00037;}
+.dchart-linechart-labelbg, .dchart-linechart-labeldip{fill: #f00037;}
+.dchart-linechart-labeltext{fill: #fff;}
+.dchart-linechart-cursorgroup, .dchart-linechart-labelgroup{opacity: 0;}
+
 /*---------------------------------*/
 .dchart-progressbar:after,.dchart-progressbar-widget:after,.dchart-progressbar-widget-block-wrapper:after{content: '.';display: block;clear: both;visibility: hidden;height: 0;}
