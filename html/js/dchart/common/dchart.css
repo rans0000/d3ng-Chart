@@ -35,8 +35,11 @@
 .dchart-radialguage-widget .dchart-radialguage{margin: auto;}
 
 /*---------------------------------*/
+.dchart-angularguage svg > g{display: block;}
 .dchart-angularguage-theme-default{}
 .dchart-angularguage-theme-default .dchart-angularguage-bgarc{fill: #ddd;}
+.dchart-angularguage-group path{display: block;}
+.dchart-angularguage-theme-default .dchart-angularguage-meter-needle{fill: red;}
 
 /*---------------------------------*/
 .dchart-angularguage-widget.type1 .dchart-angularguage svg{display: table;margin: auto;}

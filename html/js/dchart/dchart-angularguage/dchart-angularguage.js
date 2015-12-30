@@ -1,12 +1,12 @@
 /*
-@desc: Angularguage component for showing percentage value
+@desc: Angularguage-meter component for showing percentage value
 @usage:
-<!--<dchart-angularguage
+<!--<dchart-angularguage-meter
                      data-dchart-value="{{app.percentValue}}"
                      data-dchart-size="100"
-                     data-dchart-theme="dchart-angularguage-theme-default"
+                     data-dchart-theme="dchart-angularguage-meter-theme-default"
                      data-dchart-animspeed="1000">
-</dchart-angularguage>-->
+</dchart-angularguage-meter>-->
 
 @ data-dchart-value : Value for the guage (shown as a percentage value)
 @ data-dchart-size : (optional; default: 100). if size = 50, then width = 100 and height = 60
@@ -42,23 +42,25 @@
             .attr('width', settings.width)
             .attr('height', settings.height)
             .attr('class', settings.themeClass)
-            .select('g')
+            .selectAll('g')
             .remove();
-        var angularguageGroup = svg.append('g')
-        .attr('class', 'dchart-angularguage-group');
-        
+
+        var angularguageMeterGroup = svg.append('g')
+        .attr('class', 'dchart-angularguage-meter-group')
+        .attr('transform', 'translate(' + posX + ' ' + (posY - 10) + ')');
+
         //render the background arc
         var arcBg = d3.svg.arc()
         .innerRadius(settings.innerRadius)
         .outerRadius(settings.outerRadius)
         .startAngle(startAngle)
         .endAngle(Math.PI / 2);
-        
-        var shapeBg = angularguageGroup.append('path')
+
+        var shapeBg = angularguageMeterGroup.append('path')
         .attr('class', 'dchart-angularguage-bgarc')
         .attr('d', arcBg)
-        .attr('transform', 'translate(' + posX + ', ' + (posY + 10) + ')');
-        
+        //.attr('transform', 'translate(' + posX + ' ' + (posY - 10) + ')');
+
         //render the left arc
         var arcLeft = d3.svg.arc()
         .innerRadius(settings.innerRadius)
@@ -66,9 +68,9 @@
         .startAngle(startAngle)
         .endAngle(PiValue);
 
-        var shapeLeft = angularguageGroup.append('path')
+        var shapeLeft = angularguageMeterGroup.append('path')
         .attr('class', 'dchart-angularguage-leftarc')
-        .attr('transform', 'translate(' + posX + ', ' + (posY + 10) + ')')
+        //.attr('transform', 'translate(' + posX + ', ' + (posY - 10) + ')')
         //.attr('d', arcLeft);
         .transition()
         .duration(settings.animSpeed)
@@ -78,25 +80,48 @@
                 return arcLeft.endAngle(interpolate(t))();
             };
         });
-        
+
         //building the needle
-        var points = [[0, 0], [5, -settings.size], [10, 0]];
+        var angularguageNeedleGroup = svg.append('g')
+        .attr('class', 'dchart-angularguage-needle-group')
+        //.attr('transform', 'translate(' + posX + ' ' + (posY - 10) + ')');
+
+        /*var points = [[0, 0], [5, -settings.size], [10, 0]];
         var line = d3.svg.line();
-        var needle = angularguageGroup.append('path')
-        .attr('class', 'dchart-angularguage-needle')
+        var needle = angularguageNeedleGroup.append('path')
+        .attr('class', 'dchart-angularguage-meter-needle')
         .datum(points)
         .attr('d', line)
         .attr('transform', 'translate(' + (posX-5) + ', ' + (posY) + ') rotate(-90)')
         .attr('transform-origin', '5 ' + settings.size)
         .transition()
         .duration(settings.animSpeed)
-        .attr('transform', 'translate(' + (posX-5) + ', ' + (posY) + ') rotate(' + degValue + ')');
+        .attr('transform', 'translate(' + (posX-5) + ', ' + (posY) + ') rotate(' + degValue + ')');*/
+
+        var points = [[0, 0], [5, -settings.size], [10, 0]];
+        var line = d3.svg.line();
+        var needle = angularguageNeedleGroup.append('path')
+        .attr('class', 'dchart-angularguage-meter-needle')
+        .datum(points)
+        .attr('d', line);
+
+        /*var line = 'M0 100 l10 -100, 10 100 c-5 5, -5 0, -5 -5';
+        var needle = angularguageNeedleGroup.append('path')
+        .attr('class', 'dchart-angularguage-meter-needle')
+        .attr('d', line);*/
+
+        angularguageNeedleGroup
+            .attr('transform', 'translate(' + (posX-5) + ', ' + (posY) + ') rotate(-90)')
+            .attr('transform-origin', '5 ' + settings.size)
+            .transition()
+            .duration(settings.animSpeed)
+            .attr('transform', 'translate(' + (posX-5) + ', ' + (posY - 10) + ') rotate(' + degValue + ')');
     }
 
     function angularguageCompile(element, attrs, transclude){
         var svg = d3.select(element[0]).select('svg');
         var group = svg.append('g')
-        .attr('class', 'dchart-angularguage');
+        .attr('class', 'dchart-angularguage-meter');
 
         //linking function
         return function(scope, element, attrs){
@@ -115,12 +140,12 @@
         settings.outerRadius = settings.size - 25;
         settings.animSpeed = parseInt(scope.animSpeed) || 300;
         scope.value = dchartUtils.sanitize0to100(scope.value);
-        scope.themeClass = scope.themeClass || 'dchart-angularguage-theme-default';
+        scope.themeClass = scope.themeClass || 'dchart-angularguage-meter-theme-default';
         settings.themeClass = scope.themeClass;
 
         //start animating the guage
         drawAngularguage(svg, settings, scope.value)
-        
+
         scope.$watch('value', function(newValue, oldValue){
             scope.value = parseFloat(scope.value) || 0;
             drawAngularguage(svg, settings, scope.value)

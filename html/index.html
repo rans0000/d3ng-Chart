@@ -29,14 +29,20 @@
                         </dchart-radialguage-widget>
                     </div>
                     <div class="col-md-4">
-                        <dchart-angularguage-widget
+                       <dchart-angularguage
+                                                    data-dchart-value="{{app.actualValue}}"
+                                                    data-dchart-size="100"
+                                                    data-dchart-theme="dchart-angularguage-theme-default"
+                                                    data-dchart-animspeed="300">
+                        </dchart-angularguage>
+                        <!--<dchart-angularguage-widget
                                                     data-dchart-value="{{app.actualValue}}"
                                                     data-dchart-title="Overall Delight"
                                                     data-dchart-size="100"
                                                     data-dchart-type="type1"
                                                     data-dchart-theme="dchart-angularguage-theme-default"
                                                     data-dchart-animspeed="300">
-                        </dchart-angularguage-widget>
+                        </dchart-angularguage-widget>-->
                     </div>
                 </div>
                 <hr>
