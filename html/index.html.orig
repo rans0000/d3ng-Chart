@@ -93,6 +93,7 @@
             <script src="js/dchart/common/dchart-utils.js"></script>
             <script src="js/dchart/common/dchart-d3-module.js"></script>
             <script src="js/dchart/dchart-progressbar/dchart-progressbar.js"></script>
+<<<<<<< HEAD
             <script src="js/dchart/dchart-progressbar-widget/dchart-progressbar-widget.js"></script>
             <script src="js/dchart/dchart-radialguage/dchart-radialguage.js"></script>
             <script src="js/dchart/dchart-radialguage-widget/dchart-radialguage-widget.js"></script>
@@ -103,7 +104,10 @@
             <script src="js/dchart/dchart-star-rating/dchart-star-rating.js"></script>
             <script src="js/dchart/dchart-star-rating-widget/dchart-star-rating-widget.js"></script>
             <script src="js/dchart/dchart-linechart/dchart-linechart.js"></script>
+
+=======
  
+>>>>>>> b9c5a09c933fcad13bf064b6273699497ad2b961
             <!--load app-->
             <script src="js/app.js"></script>
         </div>
